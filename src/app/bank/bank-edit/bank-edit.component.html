@@ -1,0 +1,48 @@
+<div class="container center main-div">
+    <div class="row col-lg-7">
+      <br>
+      <br>
+      <h2>Edit</h2>
+      <form #clientForm="ngForm" (ngSubmit)= "editClient(clients)">
+        <div class="form-group" [ngClass]="{'has-error': name.invalid && name.touched}">
+          <label>name</label>
+          <input #name="ngModel" class="form-control" [(ngModel)]="clients.name.first" type="text" name="name" required>
+          <div class="text-danger" *ngIf="name.invalid && name.touched">
+            Tittle is required
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': last.invalid && last.touched}">
+                <label>last</label>
+                <input #last="ngModel" class="form-control" [(ngModel)]="clients.name.last" type="text" name="last" required>
+                <div class="text-danger" *ngIf="last.invalid && last.touched">
+                  Tittle is required
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': street.invalid && street.touched}">
+                <label>street</label>
+                <input #street="ngModel" class="form-control" [(ngModel)]="clients.location.street" type="text" name="street" required>
+                <div class="text-danger" *ngIf="street.invalid && street.touched">
+                  Tittle is required
+                </div>
+            </div>
+            <div class="form-group" [ngClass]="{'has-error': email.invalid && email.touched}">
+                    <label>email</label>
+                    <input #email="ngModel" class="form-control" [(ngModel)]="clients.email" type="text" name="email" required>
+                    <div class="text-danger" *ngIf="email.invalid && email.touched">
+                      Tittle is required
+                    </div>
+                </div>
+        <div class="form-group" >
+          <label>Image</label>
+          <input #url="ngModel" class="form-control" [(ngModel)]="clients.picture.large" type="text" name="url">    
+        </div>
+        
+        <button class="btn btn-success inline" [disabled]="clientForm.invalid" type="submit" >
+          Edit
+        </button>
+      </form>
+      <button class="btn btn-danger inline" (click)="cancel()">
+          Cancel
+      </button>
+    </div>
+  </div>

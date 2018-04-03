@@ -1,0 +1,19 @@
+<button mat-fab color="accent" class="add-button" (click)="goAddPage()">
+  <mat-icon>add</mat-icon>
+</button>
+
+<mat-card *ngFor="let client of clients" class="example-card">
+    <mat-card-content class="tam-img" >
+        <img [src]="client.picture.large" alt="">
+      </mat-card-content>
+    <mat-card-header class="title-tam">
+        <mat-card-title>{{client.name.first}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-header class="title-tam">
+      <mat-card-title>{{client.gender}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="editClient(client)">Edit</button>
+    <button mat-raised-button color="warn" (click)="deleteClient(client)">Delete</button>
+  </mat-card-actions>
+</mat-card>
